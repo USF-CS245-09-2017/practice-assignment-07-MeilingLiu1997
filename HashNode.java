@@ -1,4 +1,3 @@
-package cs245.PA07;
 
 public class HashNode{
     String key;
