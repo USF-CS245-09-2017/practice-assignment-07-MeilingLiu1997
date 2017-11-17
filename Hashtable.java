@@ -5,7 +5,7 @@ public class Hashtable {
     
 	// constructor -- Initializes capacity, size and empty chains.
 	public Hashtable() {
-		arr = new HashNode[10];
+		arr = new HashNode[314527];
 		size = 0;
 	}
 	
