@@ -14,10 +14,7 @@ public class Hashtable {
 	private int getIndex(String key){
 		//https://www.tutorialspoint.com/java/lang/math_abs_int.htm
         int hashCode = Math.abs(key.hashCode());
-        int index = 0;
-        if (hashCode > 2027) {
-        		index = hashCode % arr.length;
-        }
+        int index = hashCode % arr.length;
         return index;
     }
 	
