@@ -1,3 +1,5 @@
+package cs245.PA07;
+
 public class Hashtable {	
 	// data member
 	private HashNode[] arr;
@@ -11,8 +13,12 @@ public class Hashtable {
 	
 	// method
 	private int getIndex(String key){
-        int hashCode = key.hashCode();
-        int index = hashCode % arr.length;
+		//https://www.tutorialspoint.com/java/lang/math_abs_int.htm
+        int hashCode = Math.abs(key.hashCode());
+        int index = 0;
+        if (hashCode > 2027) {
+        		index = hashCode % arr.length;
+        }
         return index;
     }
 	
@@ -50,21 +56,23 @@ public class Hashtable {
 		arr[pos] = start;
 		size++;
 	}
-	
+
 	public String remove(String key) {
 		int pos = getIndex(key);
 		HashNode head = arr[pos];
+		
 		if(head == null) {
 			return null;
 		}
 		if(head.key() == key) {
 			arr[pos] = head.next;
 			size--;
-			return null;
+			return head.value();
 		}
-		HashNode prev = head;
+		
+		HashNode prev = null;
 		while(head != null) {
-			if(head.key() == key) {
+			if(head.key().equals(key)) {
 				prev.next = head.next;
 				size--;
 				return head.value();
@@ -72,7 +80,7 @@ public class Hashtable {
 			prev = head;
 			head = head.next;
 		}
-		return null;
+		return head.value();
 	}
     
 }
