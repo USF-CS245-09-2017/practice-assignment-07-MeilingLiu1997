@@ -1,4 +1,3 @@
-package cs245.PA07;
 
 public class Hashtable {	
 	// data member
